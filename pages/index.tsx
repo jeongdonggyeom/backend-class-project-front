@@ -12,9 +12,9 @@ export default function Home() {
       {isSuccess ? (
         <>
           <div className="flex">
-            <Icon image={Scissors} name={data[1].hand} rate={data[1].wr} />
-            <Icon image={Paper} name={data[2].hand} rate={data[2].wr} />
-            <Icon image={Rock} name={data[0].hand} rate={data[0].wr} />
+            <Icon image={Scissors} name={data[1].hand} rate={data[1].wr} hand="C" />
+            <Icon image={Paper} name={data[2].hand} rate={data[2].wr} hand="P" />
+            <Icon image={Rock} name={data[0].hand} rate={data[0].wr} hand="R" />
           </div>
         </>
       ) : (
