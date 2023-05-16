@@ -1,6 +1,6 @@
 import { play } from "@/util/api/rcp";
-import Image, { StaticImageData } from "next/image";
 import { useMutation } from "react-query";
+import { FaRegHandRock, FaRegHandScissors, FaRegHandPaper } from 'react-icons/fa';
 
 export default function Icon({
   image,
@@ -8,7 +8,7 @@ export default function Icon({
   rate,
   hand,
 }: {
-  image: StaticImageData;
+  image: string;
   name: string;
   rate: number;
   hand: string;
@@ -24,11 +24,13 @@ export default function Icon({
 
   return (
     <div
-      className="w-[400px] h-[400px] flex items-center flex-col"
+      className="w-[25rem] h-[25rem] flex items-center flex-col border-2 rounded-3xl border-white p-5"
       onClick={() => mutate(hand)}
     >
-      <Image src={image} alt="icon" width={300} height={300} className="mb-5" />
-      <p className="text-5xl mb-5">{name}</p>
+      {image === "rock" && <FaRegHandRock className="text-[12rem]" />}
+      {image === "scissors" && <FaRegHandScissors className="text-[12rem]" />}
+      {image === "paper" && <FaRegHandPaper className="text-[12rem]" />}
+      <p className="text-5xl mb-5 mt-5">{name}</p>
       <p className="text-4xl">승률: {Math.round(rate * 100) / 100}%</p>
     </div>
   );

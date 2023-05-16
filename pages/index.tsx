@@ -1,20 +1,22 @@
+import Header from "@/components/header";
 import Icon from "@/components/icon";
-import { Paper, Rock, Scissors } from "@/public/images/images";
 import { winRate } from "@/util/api/rcp";
+
 import { useQuery } from "react-query";
 
 export default function Home() {
   const { data, isSuccess } = useQuery("wr", () => winRate());
+  console.log(data)
 
   return (
-    <div className="flex flex-col items-center justify-center w-screen h-screen">
-      <h1 className="text-7xl mb-40">가위바위보</h1>
-      {isSuccess ? (
+    <div className="flex flex-col items-center justify-center w-full h-full">
+      <Header/>
+      {isSuccess && data.length > 0 ? (
         <>
-          <div className="flex">
-            <Icon image={Scissors} name={data[1].hand} rate={data[1].wr} hand="C" />
-            <Icon image={Paper} name={data[2].hand} rate={data[2].wr} hand="P" />
-            <Icon image={Rock} name={data[0].hand} rate={data[0].wr} hand="R" />
+          <div className="flex gap-10">
+            <Icon image={"scissors"} name={data[1].hand} rate={data[1].wr} hand="C" />
+            <Icon image={"rock"} name={data[0].hand} rate={data[0].wr} hand="R" />
+            <Icon image={"paper"} name={data[2].hand} rate={data[2].wr} hand="P" />
           </div>
         </>
       ) : (

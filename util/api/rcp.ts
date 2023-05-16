@@ -9,3 +9,7 @@ export const play = async (hand: string) => {
     hand: hand,
   })).data;
 }
+
+export const day = async (data: string) => {
+  return (await instance.get(`/day?day=${data}`)).data
+}
