@@ -1,6 +1,10 @@
 import { play } from "@/util/api/rcp";
 import { useMutation } from "react-query";
-import { FaRegHandRock, FaRegHandScissors, FaRegHandPaper } from 'react-icons/fa';
+import {
+  FaRegHandRock,
+  FaRegHandScissors,
+  FaRegHandPaper,
+} from "react-icons/fa";
 
 export default function Icon({
   image,
@@ -31,7 +35,7 @@ export default function Icon({
       {image === "scissors" && <FaRegHandScissors className="text-[12rem]" />}
       {image === "paper" && <FaRegHandPaper className="text-[12rem]" />}
       <p className="text-5xl mb-5 mt-5">{name}</p>
-      <p className="text-4xl">승률: {Math.round(rate * 100) / 100}%</p>
+      <p className="text-4xl">승률: {rate}%</p>
     </div>
   );
 }

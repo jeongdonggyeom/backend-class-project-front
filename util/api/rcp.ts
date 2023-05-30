@@ -13,3 +13,8 @@ export const play = async (hand: string) => {
 export const day = async (data: string) => {
   return (await instance.get(`/day?day=${data}`)).data
 }
+
+export const week = async (start: string, end: string) => {
+  return (await instance.get(`/week?start=${start}&end=${end}`)).data
+  // return (await instance.get(`/week?start=2023-05-16&end=2023-05-23`)).data
+}
